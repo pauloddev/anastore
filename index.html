@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ana Store | Moda Fitness em Mangabeira, João Pessoa</title>
+<meta name="description" content="Ana Store Moda Fitness: conjuntos, macaquinhos, leggings e tênis com tecido premium e preço justo. Coleção nova toda semana. Mangabeira, João Pessoa-PB.">
+<meta property="og:title" content="Ana Store | Moda Fitness">
+<meta property="og:description" content="Peças de qualidade com preço justo. Coleção nova toda semana em Mangabeira, João Pessoa.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ana Store | Moda Fitness">
+<meta property="og:image" content="https://raw.githubusercontent.com/pauloddev/anastore/main/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Logo Ana Store Moda Fitness">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/pauloddev/anastore/main/img/og.jpg">
+<meta name="theme-color" content="#D81B78">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="apple-touch-icon" href="img/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --pink:#E8318F; --pink-d:#C8166F; --berry:#8C1C4A; --berry-d:#5E0F31;
+  --ink:#1B1418; --ink-2:#4A3C43; --cream:#FBF6F3; --blush:#F8E4EC; --line:#EBD9E0; --gold:#C9A24B; --white:#fff;
+  --r:22px; --r-sm:14px; --wrap:1200px; --gap:clamp(20px,3vw,40px);
+  --display:"Big Shoulders Display",Impact,sans-serif; --body:"Manrope",system-ui,sans-serif;
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:clip}
+body{font-family:var(--body);color:var(--ink);background:var(--cream);line-height:1.6;font-size:16px;overflow-x:hidden}
+body.locked{overflow:hidden}
+img,video{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+:focus-visible{outline:3px solid var(--pink);outline-offset:3px;border-radius:6px}
+.wrap{width:min(var(--wrap),100% - 40px);margin-inline:auto}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+svg.i{width:1.15em;height:1.15em;flex:none;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* ---------- INTRO ---------- */
+#intro{position:fixed;inset:0;z-index:100;display:grid;place-items:center;background:#FEFEFE;transition:opacity .6s ease}
+#intro img{width:min(420px,72vw);height:auto;opacity:0;transition:opacity .7s ease}
+#intro.show img{opacity:1}
+#intro.fade img{opacity:0;transition:opacity 1.6s ease}
+#intro.gone{opacity:0;pointer-events:none}
+
+/* ---------- HEADER ---------- */
+header.top{position:sticky;top:0;z-index:50;background:rgba(251,246,243,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:border-color .3s}
+header.top.scrolled{border-color:var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px;gap:20px}
+.brand{display:flex;align-items:center;gap:10px}
+.brand img{height:46px;width:auto}
+.nav ul{display:flex;gap:26px;list-style:none;font-weight:600;font-size:14.5px}
+.nav ul a{position:relative;padding:6px 0}
+.nav ul a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:2px;background:var(--pink);transition:right .3s var(--ease)}
+.nav ul a:hover::after{right:0}
+.menu-btn{display:none;width:44px;height:44px;border-radius:12px;align-items:center;justify-content:center;background:var(--blush)}
+
+/* ---------- BUTTONS ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;border-radius:999px;font-weight:800;font-size:15px;letter-spacing:.01em;transition:transform .25s var(--ease),box-shadow .25s,background .25s;white-space:nowrap}
+.btn:hover{transform:translateY(-2px)}
+.btn-pink{background:var(--pink-d);color:#fff;box-shadow:0 10px 24px -10px rgba(200,22,111,.7)}
+.btn-pink:hover{background:#B0105F;box-shadow:0 16px 30px -12px rgba(200,22,111,.8)}
+.btn-ghost{border:2px solid var(--ink);color:var(--ink)}
+.btn-ghost:hover{background:var(--ink);color:#fff}
+.btn-light{background:#fff;color:var(--berry-d)}
+.btn-line-light{border:2px solid rgba(255,255,255,.7);color:#fff}
+.btn-line-light:hover{background:#fff;color:var(--berry-d)}
+.btn-sm{min-height:42px;padding:0 18px;font-size:14px}
+
+/* ---------- TYPE ---------- */
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--display);font-weight:800;letter-spacing:.22em;text-transform:uppercase;font-size:14px;color:var(--berry)}
+.eyebrow::before{content:"";width:28px;height:3px;border-radius:2px;background:var(--pink)}
+.serie{font-family:var(--display);font-weight:800;font-size:13px;letter-spacing:.2em;color:var(--pink-d);text-transform:uppercase}
+h1,h2,h3{font-family:var(--display);font-weight:900;line-height:.95;text-transform:uppercase;letter-spacing:.005em}
+h1{font-size:clamp(46px,7vw,92px)}
+h2{font-size:clamp(40px,5.4vw,72px)}
+h3{font-size:clamp(24px,2.2vw,30px);line-height:1}
+h1 em,h2 em{font-style:normal;color:var(--pink-d)}
+.lead{font-size:clamp(16px,1.35vw,18.5px);color:var(--ink-2);max-width:56ch}
+section{position:relative;padding:clamp(72px,10vw,130px) 0}
+.sec-head{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap);align-items:end;margin-bottom:clamp(36px,5vw,56px)}
+.sec-head .lead{justify-self:end}
+.center-head{text-align:center;display:flex;flex-direction:column;align-items:center;gap:16px;margin-bottom:clamp(36px,5vw,56px)}
+.center-head .lead{text-align:center}
+
+/* ---------- REVEAL / TRANSITIONS ---------- */
+.rv{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.rv-l{opacity:0;transform:translateX(-40px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rv-r{opacity:0;transform:translateX(40px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rv-l.in,.rv-r.in{opacity:1;transform:none}
+.clip{clip-path:inset(12% 12% 12% 12% round var(--r));transition:clip-path 1.2s var(--ease)}
+.clip.in{clip-path:inset(0 0 0 0 round var(--r))}
+.clip img,.clip video{transform:scale(1.15);transition:transform 1.6s var(--ease)}
+.clip.in img,.clip.in video{transform:scale(1)}
+.words .w{display:inline-block;overflow:hidden;vertical-align:top;padding:.2em .02em .08em;margin:-.2em -.02em -.08em}
+.words .w>span{display:inline-block;transform:translateY(105%);transition:transform .8s var(--ease)}
+.words.in .w>span{transform:none}
+[data-d="1"]{transition-delay:.1s}[data-d="2"]{transition-delay:.2s}[data-d="3"]{transition-delay:.3s}[data-d="4"]{transition-delay:.4s}[data-d="5"]{transition-delay:.5s}
+/* section entry wipe */
+.wipe{position:relative}
+.wipe::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;background:linear-gradient(90deg,var(--pink),var(--berry));transform:scaleX(0);transform-origin:left;transition:transform 1.2s var(--ease)}
+.wipe.in::before{transform:scaleX(1)}
+
+/* ---------- HERO ---------- */
+.hero{padding:clamp(28px,4vw,52px) 0 clamp(56px,7vw,90px)}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap);align-items:stretch}
+.hero-text{display:flex;flex-direction:column;justify-content:space-between;gap:26px;padding:6px 0}
+.hero-text .ctas{display:flex;gap:12px;flex-wrap:wrap}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.stat{background:#fff;border:1px solid var(--line);border-radius:var(--r-sm);padding:16px 14px}
+.stat b{display:block;font-family:var(--display);font-size:30px;line-height:1;color:var(--berry-d)}
+.stat span{font-size:13px;color:var(--ink-2);font-weight:600;line-height:1.35;display:block;margin-top:6px}
+.stars{color:#F2A900;letter-spacing:2px;font-size:15px}
+.hero-media{display:grid;grid-template-columns:1.25fr 1fr;grid-template-rows:1fr 1fr;gap:14px;min-height:620px}
+.hero-media .m{position:relative;border-radius:var(--r);overflow:hidden;background:var(--blush)}
+.hero-media .m:first-child{grid-row:1/3}
+.hero-media img,.hero-media video{width:100%;height:100%;object-fit:cover}
+.badge-float{position:absolute;left:14px;bottom:14px;display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.92);backdrop-filter:blur(6px);padding:9px 14px;border-radius:999px;font-weight:800;font-size:13px}
+.badge-float .dot{width:8px;height:8px;border-radius:50%;background:#E8318F;box-shadow:0 0 0 0 rgba(232,49,143,.6);animation:pulse 1.6s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 10px rgba(232,49,143,0)}100%{box-shadow:0 0 0 0 rgba(232,49,143,0)}}
+
+/* ---------- MARQUEE ---------- */
+.marquee{background:var(--berry-d);color:#fff;overflow:hidden;padding:18px 0;transform:skewY(-1.5deg);margin:-10px 0}
+.marquee .track{display:flex;gap:44px;width:max-content;animation:mq 32s linear infinite;font-family:var(--display);font-weight:800;font-size:clamp(22px,2.6vw,32px);letter-spacing:.06em;text-transform:uppercase;transform:skewY(1.5deg)}
+.marquee .track span{display:flex;align-items:center;gap:44px}
+.marquee .track span::after{content:"";width:14px;height:14px;border-radius:50%;background:var(--pink)}
+@keyframes mq{to{transform:translateX(-50%) skewY(1.5deg)}}
+
+/* ---------- BENEFITS ---------- */
+.ben-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.ben{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:28px 24px;display:flex;flex-direction:column;gap:14px;transition:transform .35s var(--ease),box-shadow .35s}
+.ben:hover{transform:translateY(-6px);box-shadow:0 22px 40px -26px rgba(94,15,49,.45)}
+.ben .ic{width:54px;height:54px;border-radius:16px;background:var(--blush);color:var(--pink-d);display:grid;place-items:center}
+.ben .ic svg{width:26px;height:26px}
+.ben p{color:var(--ink-2);font-size:15px}
+.ben .num{font-family:var(--display);font-weight:800;color:var(--line);font-size:44px;line-height:1;margin-top:auto;align-self:flex-end}
+
+/* ---------- PRODUCTS ---------- */
+.prod-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.card{background:#fff;border-radius:var(--r);overflow:hidden;border:1px solid var(--line);display:flex;flex-direction:column;transition:transform .35s var(--ease),box-shadow .35s}
+.card:hover{transform:translateY(-6px);box-shadow:0 24px 44px -28px rgba(94,15,49,.5)}
+.card .ph{aspect-ratio:3/4;overflow:hidden;position:relative;background:var(--blush)}
+.card .ph img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease)}
+.card:hover .ph img{transform:scale(1.06)}
+.card .tag{position:absolute;top:12px;left:12px;background:var(--ink);color:#fff;font-size:11.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:6px 10px;border-radius:999px}
+.card .bd{padding:18px 18px 20px;display:flex;flex-direction:column;gap:8px;flex:1}
+.card h3{font-size:22px}
+.card .meta{font-size:13px;color:var(--ink-2);font-weight:600}
+.price{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin-top:auto;padding-top:8px}
+.price b{font-family:var(--display);font-size:30px;line-height:1;color:var(--berry-d)}
+.price small{font-size:12.5px;color:var(--ink-2);font-weight:600}
+.card .btn{margin-top:auto;width:100%}
+.card.cta-card{background:linear-gradient(160deg,var(--berry-d),var(--pink-d));color:#fff;border:0;justify-content:space-between;padding:28px 24px}
+.card.cta-card h3{font-size:34px}
+.card.cta-card p{opacity:.9;font-size:15px}
+.note{margin-top:22px;text-align:center;font-size:13.5px;color:var(--ink-2)}
+
+/* ---------- SPLIT (equal-height text + media) ---------- */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap);align-items:stretch}
+.split>*,.feature>*,.hero-grid>*,.loc-grid>*{min-width:0}
+.split .txt{display:flex;flex-direction:column;justify-content:space-between;gap:24px}
+.split .media{border-radius:var(--r);overflow:hidden;position:relative;min-height:100%}
+.split .media img,.split .media video{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+
+/* ---------- CAROUSEL ---------- */
+.carousel{position:relative}
+.car-track{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 3*16px)/4);gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:4px 2px 8px;overscroll-behavior-x:contain}
+.car-track::-webkit-scrollbar{display:none}
+.car-track>*{scroll-snap-align:start}
+.car-ui{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:22px}
+.car-dots{display:flex;gap:8px;flex-wrap:wrap}
+.car-dots button{width:9px;height:9px;border-radius:999px;background:var(--line);transition:width .3s,background .3s}
+.car-dots button.on{width:28px;background:var(--pink-d)}
+.car-arrows{display:flex;gap:10px}
+.car-arrows button{width:48px;height:48px;border-radius:50%;border:2px solid var(--ink);display:grid;place-items:center;transition:background .25s,color .25s}
+.car-arrows button:hover{background:var(--ink);color:#fff}
+.slide-ph{aspect-ratio:3/4;border-radius:var(--r-sm);overflow:hidden;background:var(--blush);position:relative}
+.slide-ph img,.slide-ph video{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease)}
+.slide-ph:hover img{transform:scale(1.05)}
+
+/* ---------- LOOKBOOK / VIDEOS feature ---------- */
+.feature{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap);align-items:stretch;margin-bottom:clamp(28px,4vw,44px)}
+.feature .big{border-radius:var(--r);overflow:hidden;position:relative;min-height:600px}
+.feature .big img,.feature .big video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.feature .txt{display:flex;flex-direction:column;justify-content:space-between;gap:22px}
+.mini-pair{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.mini-pair .slide-ph{border-radius:var(--r-sm)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:#fff;border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-size:13.5px;font-weight:700}
+.vid-card{position:relative}
+.vid-card .play{position:absolute;right:12px;bottom:12px;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.92);display:grid;place-items:center;color:var(--berry-d)}
+.sound{position:absolute;right:14px;top:14px;display:flex;align-items:center;gap:6px;background:rgba(27,20,24,.7);color:#fff;font-size:12px;font-weight:700;padding:7px 12px;border-radius:999px}
+
+/* ---------- DARK SECTIONS ---------- */
+.dark{background:var(--ink);color:#fff}
+.dark .lead{color:rgba(255,255,255,.78)}
+.dark .eyebrow{color:#FF9CCB}
+.dark .serie{color:#FF9CCB}
+.dark h2 em{color:#FF6CB4}
+
+/* ---------- CEO ---------- */
+.ceo .media{aspect-ratio:4/5}
+.ceo .sign{font-family:var(--display);font-size:clamp(40px,5vw,64px);font-weight:900;line-height:.9;text-transform:uppercase}
+.ceo .role{display:block;font-family:var(--body);font-size:13px;letter-spacing:.24em;font-weight:800;color:#FF9CCB;margin-top:10px}
+.quote{font-size:clamp(18px,1.7vw,22px);line-height:1.5;font-weight:600;border-left:4px solid var(--pink);padding-left:20px}
+.ceo-points{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.ceo-points div{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:var(--r-sm);padding:16px}
+.ceo-points b{display:block;font-family:var(--display);font-size:26px;line-height:1;color:#FF9CCB}
+.ceo-points span{font-size:13.5px;color:rgba(255,255,255,.78)}
+
+/* ---------- MUSAS ---------- */
+.musas-top{display:grid;grid-template-columns:1.3fr 1fr;gap:16px;margin-bottom:16px}
+.musas-top .big{aspect-ratio:auto;height:100%;min-height:520px}
+.musas-top .big img{position:absolute;inset:0}
+.musas-side{display:grid;grid-template-rows:auto 1fr;gap:16px}
+.musas-side .mini-pair .slide-ph{aspect-ratio:3/4}
+.musas-txt{background:var(--blush);border-radius:var(--r);padding:clamp(22px,3vw,34px);display:flex;flex-direction:column;justify-content:space-between;gap:18px}
+.musas-txt h2{font-size:clamp(38px,4.4vw,62px)}
+.handle{position:absolute;left:12px;bottom:12px;background:rgba(255,255,255,.92);border-radius:999px;padding:6px 12px;font-size:12px;font-weight:800;color:var(--berry-d)}
+
+/* ---------- FEEDBACK ---------- */
+.google{display:grid;grid-template-columns:auto 1fr auto;gap:28px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:26px 30px;margin-bottom:28px}
+.google .score{font-family:var(--display);font-size:78px;line-height:.85;font-weight:900;color:var(--berry-d)}
+.google .stars{font-size:24px}
+.fb-track{grid-auto-columns:calc((100% - 2*16px)/3)}
+.fb{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:24px;display:flex;flex-direction:column;gap:16px;height:100%}
+.fb .bubble{background:#E7FFDB;border-radius:4px 16px 16px 16px;padding:14px 16px;font-size:15.5px;line-height:1.5;position:relative;color:#1f2a1c}
+.fb .bubble.ig{background:var(--blush);color:var(--ink)}
+.fb .bubble time{display:block;text-align:right;font-size:11px;color:#6b7a67;margin-top:4px}
+.fb .who{display:flex;align-items:center;gap:12px;margin-top:auto}
+.fb .av{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--pink),var(--berry));color:#fff;display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:18px}
+.fb .who b{display:block;font-size:14px}
+.fb .who span{font-size:12.5px;color:var(--ink-2);font-weight:600}
+.src{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-2)}
+
+/* ---------- POLICY ---------- */
+.pol-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.pol{background:#fff;border:1px solid var(--line);border-radius:var(--r-sm);padding:22px 20px;display:flex;flex-direction:column;gap:12px}
+.pol .ic{width:46px;height:46px;border-radius:14px;background:var(--pink-d);color:#fff;display:grid;place-items:center}
+.pol .ic svg{width:22px;height:22px}
+.pol b{font-size:16px;line-height:1.3}
+.pol span{font-size:14px;color:var(--ink-2)}
+.pol.no .ic{background:var(--ink)}
+
+/* ---------- LOCATION ---------- */
+.loc-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:stretch}
+.loc-photo{border-radius:var(--r);overflow:hidden;position:relative}
+.loc-photo img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.loc-side{display:grid;grid-template-rows:1fr auto;gap:16px}
+.map{border-radius:var(--r);overflow:hidden;position:relative;min-height:300px;background:linear-gradient(135deg,var(--blush),#fff)}
+.map .fallback{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center;padding:24px;color:var(--berry-d)}
+.map .fallback svg{width:42px;height:42px}
+.map iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.info{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:24px;display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.info .row{display:flex;gap:12px}
+.info .row svg{width:22px;height:22px;color:var(--pink-d);margin-top:2px}
+.info b{display:block;font-size:14px;text-transform:uppercase;letter-spacing:.08em;color:var(--berry)}
+.info p{font-size:15px}
+.info .btns{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+
+/* ---------- FINAL CTA ---------- */
+.final{background:linear-gradient(135deg,var(--berry-d) 0%,var(--pink-d) 100%);color:#fff;overflow:hidden}
+.final .split .media{min-height:440px}
+.final h2 em{color:#FFD0E6}
+.final .lead{color:rgba(255,255,255,.88)}
+.final .ctas{display:flex;gap:12px;flex-wrap:wrap}
+.final .plate{position:absolute;border-radius:50%;border:2px solid rgba(255,255,255,.14)}
+
+/* ---------- FOOTER ---------- */
+footer{background:var(--ink);color:rgba(255,255,255,.75);padding:56px 0 34px;font-size:14px}
+.foot{display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;gap:var(--gap)}
+.foot img{height:66px;width:auto;background:#fff;border-radius:14px;padding:8px 12px}
+.foot h4{font-family:var(--display);color:#fff;font-size:18px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px}
+.foot a{display:flex;align-items:center;gap:8px;padding:4px 0}
+.foot a:hover{color:#fff}
+.copy{border-top:1px solid rgba(255,255,255,.12);margin-top:36px;padding-top:22px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12.5px}
+
+/* ---------- FLOAT WA ---------- */
+.wa-float{position:fixed;right:18px;bottom:18px;z-index:60;width:60px;height:60px;border-radius:50%;background:#25D366;color:#fff;display:grid;place-items:center;box-shadow:0 12px 28px -8px rgba(0,0,0,.4);transform:scale(0);transition:transform .4s var(--ease)}
+.wa-float.show{transform:scale(1)}
+.wa-float svg{width:32px;height:32px;fill:#fff;stroke:none}
+.wa-float::before{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid #25D366;animation:ring2 2s infinite}
+@keyframes ring2{0%{transform:scale(1);opacity:.8}100%{transform:scale(1.6);opacity:0}}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:1024px){
+  .ben-grid,.prod-grid,.pol-grid{grid-template-columns:repeat(2,1fr)}
+  .car-track{grid-auto-columns:calc((100% - 2*16px)/3)}
+  .fb-track{grid-auto-columns:calc((100% - 16px)/2)}
+  .foot{grid-template-columns:1fr 1fr}
+}
+@media (max-width:860px){
+  .nav ul{display:none}
+  .nav ul.open{display:flex;position:absolute;top:72px;left:0;right:0;flex-direction:column;gap:0;background:var(--cream);border-bottom:1px solid var(--line);padding:8px 20px 18px}
+  .nav ul.open a{display:block;padding:14px 0;border-bottom:1px solid var(--line)}
+  .menu-btn{display:inline-flex}
+  .nav .btn-wa-top{display:none}
+  .hero-grid,.split,.feature,.loc-grid,.musas-top,.sec-head{grid-template-columns:1fr}
+  .sec-head .lead{justify-self:start}
+  .hero-media{min-height:auto;grid-template-rows:auto auto}
+  .hero-media .m{aspect-ratio:3/4}
+  .hero-media .m:first-child{grid-row:1/3}
+  .feature .big{min-height:0;aspect-ratio:3/4}
+  .musas-top .big{min-height:0;aspect-ratio:3/4}
+  .split .media{aspect-ratio:4/5;min-height:0}
+  .final .split .media{min-height:0}
+  .loc-photo{aspect-ratio:4/5}
+  .google{grid-template-columns:1fr;text-align:center;justify-items:center}
+}
+@media (max-width:560px){
+  body{font-size:15.5px}
+  .stats{grid-template-columns:repeat(3,1fr);gap:8px}
+  .stat{padding:12px 10px}
+  .stat b{font-size:24px}
+  .stat span{font-size:11.5px}
+  .ben-grid,.pol-grid{grid-template-columns:1fr}
+  .prod-grid{grid-template-columns:1fr 1fr;gap:10px}
+  .card .bd{padding:12px 12px 14px}
+  .card h3{font-size:18px}
+  .price b{font-size:23px}
+  .card .btn{min-height:42px;font-size:13px;padding:0 10px}
+  .car-track{grid-auto-columns:72%}
+  .fb-track{grid-auto-columns:86%}
+  .hero-text .ctas .btn{flex:1 1 100%}
+  .info{grid-template-columns:1fr}
+  .info .btns{grid-template-columns:1fr}
+  .ceo-points{grid-template-columns:1fr 1fr}
+  .foot{grid-template-columns:1fr}
+  .wa-float{width:54px;height:54px}
+  .btn{white-space:normal;text-align:center;line-height:1.2}
+  .card.cta-card{padding:18px 14px}
+  .card.cta-card h3{font-size:24px;overflow-wrap:anywhere}
+  .card.cta-card p{font-size:13px}
+  .card.cta-card .btn{font-size:12.5px;padding:8px 10px}
+  .quote{font-size:17px}
+  .ceo-points b{font-size:20px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+  .rv,.rv-l,.rv-r{opacity:1;transform:none}.clip{clip-path:none}.words .w>span{transform:none}
+}
+</style>
+</head>
+<body class="locked">
+
+<!-- SVG sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></symbol>
+  <symbol id="i-ig" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12Z"/><circle cx="12" cy="10" r="2.6"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-left" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></symbol>
+  <symbol id="i-right" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></symbol>
+  <symbol id="i-fabric" viewBox="0 0 24 24"><path d="M4 6c2.7-2 5.3 2 8 0s5.3-2 8 0M4 12c2.7-2 5.3 2 8 0s5.3-2 8 0M4 18c2.7-2 5.3 2 8 0s5.3-2 8 0"/></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4M12 14l1 2 2 .3-1.5 1.4.4 2.1-1.9-1-1.9 1 .4-2.1L9 16.3l2-.3 1-2Z"/></symbol>
+  <symbol id="i-tag" viewBox="0 0 24 24"><path d="M3 12V4a1 1 0 0 1 1-1h8l9 9-9 9-9-9Z"/><circle cx="7.5" cy="7.5" r="1.5"/></symbol>
+  <symbol id="i-ruler" viewBox="0 0 24 24"><path d="M3 17 17 3l4 4L7 21l-4-4Z"/><path d="m7 13 2 2M10 10l2 2M13 7l2 2"/></symbol>
+  <symbol id="i-store" viewBox="0 0 24 24"><path d="M3 9 4.5 4h15L21 9M3 9v11h18V9M3 9a3 3 0 0 0 6 0 3 3 0 0 0 6 0 3 3 0 0 0 6 0M9 20v-6h6v6"/></symbol>
+  <symbol id="i-cart" viewBox="0 0 24 24"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h3l2.6 12.4a1.5 1.5 0 0 0 1.5 1.1h8.8a1.5 1.5 0 0 0 1.5-1.2L21 8H6"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5M8.5 11l1.8 1.8 3.5-3.6"/></symbol>
+  <symbol id="i-label" viewBox="0 0 24 24"><path d="M20 12 12 20l-8-8V4h8l8 8Z"/><circle cx="8" cy="8" r="1.3"/><path d="M14 4c3 0 5 1.5 6 3"/></symbol>
+  <symbol id="i-one" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M10.5 9 12.5 7.5V16.5M10.5 16.5h4"/></symbol>
+  <symbol id="i-drop" viewBox="0 0 24 24"><path d="M12 3s6 6.4 6 11a6 6 0 0 1-12 0c0-4.6 6-11 6-11Z"/><path d="m4 4 16 16"/></symbol>
+  <symbol id="i-shirt" viewBox="0 0 24 24"><path d="M8 3 3 6l2 5 2-1v11h10V10l2 1 2-5-5-3a4 4 0 0 1-8 0Z"/><path d="m4 4 16 16"/></symbol>
+  <symbol id="i-money" viewBox="0 0 24 24"><rect x="2.5" y="6" width="19" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="m3 3 18 18"/></symbol>
+  <symbol id="i-swap" viewBox="0 0 24 24"><path d="M4 8h13l-3-3M20 16H7l3 3"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7L8 5Z" fill="currentColor"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-waze" viewBox="0 0 24 24"><path d="M5 15.5A8 8 0 1 1 20 11c0 3.6-2.6 6-6.5 6.4H11a2.5 2.5 0 0 1-4.6.4C4.6 17.6 3 16.6 3.5 15.5"/><circle cx="10" cy="10" r=".8" fill="currentColor"/><circle cx="15" cy="10" r=".8" fill="currentColor"/><path d="M9.5 13.2c1.5 1.3 3.5 1.3 5 0"/></symbol>
+  <symbol id="i-map" viewBox="0 0 24 24"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2ZM9 4v14M15 6v14"/></symbol>
+  <symbol id="i-sound" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4Z"/><path d="m17 9 4 6M21 9l-4 6"/></symbol>
+</svg>
+
+<!-- INTRO -->
+<div id="intro" aria-hidden="true"><img src="img/logo-original.jpg" alt=""></div>
+
+<header class="top" id="top">
+  <div class="wrap nav">
+    <a href="#inicio" class="brand" aria-label="Ana Store Moda Fitness — início"><img src="img/logo.png" alt="Ana Store Moda Fitness"></a>
+    <ul id="menu">
+      <li><a href="#vitrine">Vitrine</a></li>
+      <li><a href="#provador">Provador</a></li>
+      <li><a href="#ceo">A CEO</a></li>
+      <li><a href="#musas">Musas</a></li>
+      <li><a href="#feedbacks">Feedbacks</a></li>
+      <li><a href="#loja">Loja</a></li>
+    </ul>
+    <a class="btn btn-pink btn-sm btn-wa-top" href="https://wa.me/5583982066123?text=Oi%2C%20Ana%20Store!%20Quero%20ver%20as%20novidades%20da%20semana%20%F0%9F%92%AA" target="_blank" rel="noopener"><svg class="i"><use href="#i-wa"/></svg>Chamar no WhatsApp</a>
+    <button class="menu-btn" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu"><svg class="i"><use href="#i-menu"/></svg></button>
+  </div>
+</header>
+
+<main id="inicio">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-text">
+      <div>
+        <span class="eyebrow rv">Moda fitness · Mangabeira, João Pessoa</span>
+        <h1 class="words" style="margin-top:18px">Roupa de treino que <em>veste bem</em>, aguenta o treino e cabe no bolso.</h1>
+      </div>
+      <p class="lead rv" data-d="2">Conjuntos, macaquinhos, leggings e tênis com poliamida premium e canelado de caimento perfeito. Coleção nova <b>toda semana</b> na loja física — e com preço justo de verdade.</p>
+      <div class="ctas rv" data-d="3">
+        <a class="btn btn-pink" href="https://wa.me/5583982066123?text=Oi%2C%20Ana%20Store!%20Quero%20montar%20meu%20look%20de%20treino%20%F0%9F%8F%8B%EF%B8%8F%E2%80%8D%E2%99%80%EF%B8%8F" target="_blank" rel="noopener"><svg class="i"><use href="#i-wa"/></svg>Montar meu look no WhatsApp</a>
+        <a class="btn btn-ghost" href="#vitrine">Ver a vitrine da semana<svg class="i"><use href="#i-arrow"/></svg></a>
+      </div>
+      <div class="stats rv" data-d="4">
+        <div class="stat"><b>5,0</b><span><span class="stars">★★★★★</span><br>nota no Google</span></div>
+        <div class="stat"><b>1x</b><span>por semana chega coleção nova</span></div>
+        <div class="stat"><b>P ao G</b><span>do 38 ao 42, com provador</span></div>
+      </div>
+    </div>
+    <div class="hero-media">
+      <div class="m clip"><video src="v/v8.mp4" poster="v/v8.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Cliente provando conjunto canelado vinho"></video><span class="badge-float"><span class="dot"></span>Nova coleção no provador</span></div>
+      <div class="m clip" data-d="1"><img src="img/l_76429e30.jpg" alt="Macacão canelado vinho com recortes em branco" loading="eager"></div>
+      <div class="m clip" data-d="2"><img src="img/l_d958273d.jpg" alt="Macaquinho rosa com recortes, usado com tênis branco" loading="eager"></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- BENEFÍCIOS -->
+<section id="porque" class="wipe">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="serie rv">Série 01 · Aquecimento</span><h2 class="words" style="margin-top:12px">Por que treinar de <em>Ana Store</em></h2></div>
+      <p class="lead rv" data-d="2">Qualidade nos tecidos sem preço de grife. É isso que faz cliente voltar — e indicar a loja na academia.</p>
+    </div>
+    <div class="ben-grid">
+      <article class="ben rv" data-d="1"><div class="ic"><svg class="i"><use href="#i-fabric"/></svg></div><h3>Tecido que segura o treino</h3><p>Poliamida premium e malha canelada: modela o corpo, não marca e não fica transparente no agachamento.</p><span class="num">01</span></article>
+      <article class="ben rv" data-d="2"><div class="ic"><svg class="i"><use href="#i-cal"/></svg></div><h3>Novidade toda semana</h3><p>O estoque gira semanalmente com cores e modelagens novas. Sempre tem peça que ninguém da sua academia tem ainda.</p><span class="num">02</span></article>
+      <article class="ben rv" data-d="3"><div class="ic"><svg class="i"><use href="#i-tag"/></svg></div><h3>Preço justo, sem pegadinha</h3><p>Qualidade de loja grande com valor que cabe no bolso — e condição especial à vista ou parcelado no cartão.</p><span class="num">03</span></article>
+      <article class="ben rv" data-d="4"><div class="ic"><svg class="i"><use href="#i-ruler"/></svg></div><h3>Na dúvida do tamanho?</h3><p>Prove no nosso provador em Mangabeira ou mande suas medidas no WhatsApp — a gente indica o tamanho certo (P ao G, 38 ao 42).</p><span class="num">04</span></article>
+    </div>
+  </div>
+</section>
+
+<!-- VITRINE -->
+<section id="vitrine" class="wipe" style="background:#fff">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="serie rv">Série 02 · Vitrine da semana</span><h2 class="words" style="margin-top:12px">Escolha a peça. <em>A gente separa.</em></h2></div>
+      <p class="lead rv" data-d="2">Toque em “Quero essa” e sua mensagem já vai pronta para o WhatsApp da loja, com o nome da peça.</p>
+    </div>
+    <div class="prod-grid" id="prods"></div>
+    <p class="note rv">Como a coleção renova toda semana, confirme cores, tamanhos e valores pelo WhatsApp.</p>
+  </div>
+</section>
+
+<!-- TÊNIS -->
+<section id="tenis" class="wipe">
+  <div class="wrap split">
+    <div class="txt">
+      <div><span class="serie rv">Série 03 · Pisada</span><h2 class="words" style="margin-top:12px">O tênis que fecha o <em>look</em></h2></div>
+      <p class="lead rv" data-d="1">Modelos selecionados para treinar e para o dia a dia — solado alto, confortáveis e que combinam com qualquer conjunto da loja. Clientes contam que a forma veste certinho.</p>
+      <div class="mini-pair rv" data-d="2">
+        <div class="slide-ph"><img src="img/t3.jpg" alt="Tênis preto com solado off-white" loading="lazy"></div>
+        <div class="slide-ph"><img src="img/t2.jpg" alt="Tênis bege e caramelo" loading="lazy"></div>
+      </div>
+      <div class="rv" data-d="3"><a class="btn btn-pink" href="https://wa.me/5583982066123?text=Oi%2C%20Ana%20Store!%20Quais%20t%C3%AAnis%20e%20numera%C3%A7%C3%B5es%20voc%C3%AAs%20t%C3%AAm%20hoje%3F" target="_blank" rel="noopener"><svg class="i"><use href="#i-wa"/></svg>Consultar minha numeração</a></div>
+    </div>
+    <div class="media clip"><img src="img/t4.jpg" alt="Tênis branco com detalhes cinza, saindo da caixa" loading="lazy"></div>
+  </div>
+</section>
+
+<!-- PROVADOR (fotos) -->
+<section id="provador" class="wipe" style="background:#fff">
+  <div class="wrap">
+    <div class="feature">
+      <div class="big clip"><img src="img/l_f2f7b3da.jpg" alt="Conjunto canelado azul petróleo com top nadador e legging" loading="lazy"></div>
+      <div class="txt">
+        <div><span class="serie rv">Série 04 · Provador</span><h2 class="words" style="margin-top:12px">No corpo é <em>outra história</em></h2></div>
+        <p class="lead rv" data-d="1">Nada de foto de catálogo: aqui é a peça vestida, no nosso provador, do jeito que ela vai ficar em você. Arraste para ver a coleção.</p>
+        <div class="mini-pair rv" data-d="2">
+          <div class="slide-ph"><img src="img/l_1b8c7b8b.jpg" alt="Conjunto top e legging vinho com vivo branco" loading="lazy"></div>
+          <div class="slide-ph"><img src="img/l_f7cac95a.jpg" alt="Conjunto branco de camiseta e shorts" loading="lazy"></div>
+        </div>
+        <div class="chips rv" data-d="3"><span class="chip">Conjuntos</span><span class="chip">Macaquinhos</span><span class="chip">Macacões</span><span class="chip">Flare</span><span class="chip">Shorts</span><span class="chip">Croppeds</span></div>
+      </div>
+    </div>
+    <div class="carousel rv" data-car>
+      <div class="car-track" id="look"></div>
+      <div class="car-ui"><div class="car-dots"></div><div class="car-arrows"><button aria-label="Anterior"><svg class="i"><use href="#i-left"/></svg></button><button aria-label="Próximo"><svg class="i"><use href="#i-right"/></svg></button></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- VÍDEOS -->
+<section id="videos" class="dark">
+  <div class="wrap">
+    <div class="feature">
+      <div class="txt">
+        <div><span class="serie rv">Série 05 · Em movimento</span><h2 class="words" style="margin-top:12px">Veja o caimento <em>em movimento</em></h2></div>
+        <p class="lead rv" data-d="1">Tecido bom se prova no movimento: como estica, como modela, como volta pro lugar. Dá o play e escolhe o seu.</p>
+        <div class="mini-pair rv" data-d="2">
+          <div class="slide-ph vid-card"><video src="v/v3.mp4" poster="v/v3.jpg" muted loop playsinline preload="none" data-auto aria-label="Conjunto azul petróleo em movimento"></video></div>
+          <div class="slide-ph vid-card"><video src="v/v6.mp4" poster="v/v6.jpg" muted loop playsinline preload="none" data-auto aria-label="Conjunto canelado premium azul-marinho"></video></div>
+        </div>
+        <div class="rv" data-d="3"><a class="btn btn-light" href="https://www.instagram.com/anastore.jp/" target="_blank" rel="noopener"><svg class="i"><use href="#i-ig"/></svg>Mais vídeos no @anastore.jp</a></div>
+      </div>
+      <div class="big clip vid-card"><video src="v/v1.mp4" poster="v/v1.jpg" muted loop playsinline preload="none" data-auto aria-label="Macaquinho rosa em movimento"></video><span class="sound"><svg class="i"><use href="#i-sound"/></svg>Sem som</span></div>
+    </div>
+    <div class="carousel rv" data-car>
+      <div class="car-track" id="vids"></div>
+      <div class="car-ui"><div class="car-dots"></div><div class="car-arrows"><button aria-label="Anterior" style="border-color:#fff"><svg class="i"><use href="#i-left"/></svg></button><button aria-label="Próximo" style="border-color:#fff"><svg class="i"><use href="#i-right"/></svg></button></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CEO -->
+<section id="ceo" class="dark ceo" style="padding-top:0">
+  <div class="wrap split">
+    <div class="media clip"><img src="img/ceo.jpg" alt="Analucia Santos, CEO da Ana Store" loading="lazy"></div>
+    <div class="txt">
+      <div><span class="serie rv">Série 06 · Quem está por trás</span>
+        <h2 class="sign words" style="margin-top:14px">Analucia Santos</h2><span class="role rv">CEO · Ana Store Moda Fitness</span></div>
+      <p class="quote rv" data-d="1">“Moda fitness boa não precisa ser cara. Eu escolho cada peça pensando em quem treina de verdade: tecido de qualidade, caimento bonito e um preço que deixa você voltar toda semana.”</p>
+      <p class="lead rv" data-d="2">À frente da loja em Mangabeira, Ana faz a curadoria semanal das coleções, testa os tecidos e atende pessoalmente quem passa no provador — é por isso que a loja mantém nota máxima no Google.</p>
+      <div class="ceo-points rv" data-d="3">
+        <div><b>Curadoria</b><span>peça a peça, toda semana</span></div>
+        <div><b>Atendimento</b><span>no provador e no WhatsApp</span></div>
+      </div>
+      <div class="rv" data-d="4" style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn btn-light" href="https://www.instagram.com/anasantosoficiall/" target="_blank" rel="noopener"><svg class="i"><use href="#i-ig"/></svg>Seguir @anasantosoficiall</a><a class="btn btn-line-light" href="https://www.instagram.com/anastore.jp/" target="_blank" rel="noopener">@anastore.jp</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- MUSAS -->
+<section id="musas" class="wipe">
+  <div class="wrap">
+    <div class="musas-top">
+      <div class="slide-ph big clip" style="border-radius:var(--r)"><img src="img/m7.jpg" alt="Cliente com macacão lilás na academia" loading="lazy"><span class="handle">Musa Ana Store</span></div>
+      <div class="musas-side">
+        <div class="mini-pair">
+          <div class="slide-ph clip" data-d="1"><img src="img/m9.jpg" alt="Cliente com conjunto vermelho na academia" loading="lazy"></div>
+          <div class="slide-ph clip" data-d="2"><img src="img/c4.jpg" alt="Cliente com conjunto azul petróleo" loading="lazy"></div>
+        </div>
+        <div class="musas-txt">
+          <span class="serie rv">Série 07 · Comunidade</span>
+          <h2 class="words">As musas usam <em>Ana Store</em></h2>
+          <p class="rv" data-d="1" style="color:var(--ink-2)">Elas compram, treinam e marcam a gente. Use a sua e poste com <b>@anastore.jp</b> — você pode aparecer aqui.</p>
+          <div class="rv" data-d="2"><a class="btn btn-pink" href="https://www.instagram.com/anastore.jp/" target="_blank" rel="noopener"><svg class="i"><use href="#i-ig"/></svg>Quero ser musa também</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="carousel rv" data-car>
+      <div class="car-track" id="musasCar"></div>
+      <div class="car-ui"><div class="car-dots"></div><div class="car-arrows"><button aria-label="Anterior"><svg class="i"><use href="#i-left"/></svg></button><button aria-label="Próximo"><svg class="i"><use href="#i-right"/></svg></button></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FEEDBACKS -->
+<section id="feedbacks" class="wipe" style="background:var(--blush)">
+  <div class="wrap">
+    <div class="center-head">
+      <span class="serie rv">Série 08 · Resultado</span>
+      <h2 class="words">Quem compra, <em>volta e indica</em></h2>
+      <p class="lead rv" data-d="1">Mensagens reais de clientes no WhatsApp e no Instagram da loja.</p>
+    </div>
+    <div class="google rv">
+      <div class="score">5,0</div>
+      <div><div class="stars">★★★★★</div><b style="display:block;font-size:18px;margin-top:6px">Nota máxima no Google</b><span style="color:var(--ink-2);font-size:14.5px">Ana Store | Moda fitness — avaliações de clientes da loja em Mangabeira.</span></div>
+      <a class="btn btn-ghost btn-sm" href="https://www.google.com/search?q=Ana+Store+%7C+Moda+fitness" target="_blank" rel="noopener">Ver no Google<svg class="i"><use href="#i-arrow"/></svg></a>
+    </div>
+    <div class="carousel rv" data-car data-auto="6000">
+      <div class="car-track fb-track" id="fbs"></div>
+      <div class="car-ui"><div class="car-dots"></div><div class="car-arrows"><button aria-label="Anterior"><svg class="i"><use href="#i-left"/></svg></button><button aria-label="Próximo"><svg class="i"><use href="#i-right"/></svg></button></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- POLÍTICA DE TROCA -->
+<section id="troca" class="wipe">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="serie rv">Série 09 · Sem susto</span><h2 class="words" style="margin-top:12px">Política de <em>troca</em></h2></div>
+      <p class="lead rv" data-d="1">Regras claras para você comprar com tranquilidade, na loja ou online.</p>
+    </div>
+    <div class="pol-grid">
+      <div class="pol rv" data-d="1"><div class="ic"><svg class="i"><use href="#i-store"/></svg></div><b>Loja física</b><span>Troca em até 2 dias úteis.</span></div>
+      <div class="pol rv" data-d="2"><div class="ic"><svg class="i"><use href="#i-cart"/></svg></div><b>Loja online</b><span>Troca em até 7 dias úteis.</span></div>
+      <div class="pol rv" data-d="3"><div class="ic"><svg class="i"><use href="#i-search"/></svg></div><b>Sem indícios de uso</b><span>A peça não pode apresentar sinais de uso.</span></div>
+      <div class="pol rv" data-d="4"><div class="ic"><svg class="i"><use href="#i-label"/></svg></div><b>Com etiqueta</b><span>A etiqueta precisa estar fixada na peça.</span></div>
+      <div class="pol rv" data-d="1"><div class="ic"><svg class="i"><use href="#i-one"/></svg></div><b>Uma única troca</b><span>Cada peça pode ser trocada só 1 vez.</span></div>
+      <div class="pol no rv" data-d="2"><div class="ic"><svg class="i"><use href="#i-drop"/></svg></div><b>Peças sujas</b><span>Não trocamos peças sujas.</span></div>
+      <div class="pol no rv" data-d="3"><div class="ic"><svg class="i"><use href="#i-shirt"/></svg></div><b>Peças brancas</b><span>Não trocamos peças brancas.</span></div>
+      <div class="pol no rv" data-d="4"><div class="ic"><svg class="i"><use href="#i-money"/></svg></div><b>Sem devolução em dinheiro</b><span>Não aceitamos devolução do valor pago.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCALIZAÇÃO -->
+<section id="loja" class="wipe" style="background:#fff">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="serie rv">Série 10 · Vem pro provador</span><h2 class="words" style="margin-top:12px">A loja fica em <em>Mangabeira</em></h2></div>
+      <p class="lead rv" data-d="1">Passa aqui para provar com calma. A coleção da semana está na arara te esperando.</p>
+    </div>
+    <div class="loc-grid">
+      <div class="loc-photo clip"><img src="img/fachada.jpg" alt="Fachada da Ana Store Moda Fitness em Mangabeira" loading="lazy"></div>
+      <div class="loc-side">
+        <div class="map rv" data-d="1">
+          <div class="fallback"><svg class="i"><use href="#i-pin"/></svg><b>R. Severino Antônio de Souza, 56</b><span>Mangabeira · João Pessoa-PB</span></div>
+          <iframe title="Mapa da Ana Store no Google Maps" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Ana%20Store%20Moda%20Fitness%2C%20R.%20Severino%20Ant%C3%B4nio%20de%20Souza%2C%2056%20-%20Mangabeira%2C%20Jo%C3%A3o%20Pessoa%20-%20PB%2C%2058055-490&z=16&output=embed"></iframe>
+        </div>
+        <div class="info rv" data-d="2">
+          <div class="row"><svg class="i"><use href="#i-pin"/></svg><div><b>Endereço</b><p>R. Severino Antônio de Souza, 56<br>Mangabeira, João Pessoa-PB<br>CEP 58055-490</p></div></div>
+          <div class="row"><svg class="i"><use href="#i-clock"/></svg><div><b>Horário</b><p>Seg a sex: 9h30 às 17h40<br>Sábado: 9h às 17h<br>Domingo: fechado</p></div></div>
+          <div class="btns">
+            <a class="btn btn-pink btn-sm" href="https://www.google.com/maps/search/?api=1&query=Ana%20Store%20Moda%20Fitness%20R.%20Severino%20Ant%C3%B4nio%20de%20Souza%2056%20Mangabeira%20Jo%C3%A3o%20Pessoa" target="_blank" rel="noopener"><svg class="i"><use href="#i-map"/></svg>Google Maps</a>
+            <a class="btn btn-ghost btn-sm" href="https://waze.com/ul?q=R.%20Severino%20Ant%C3%B4nio%20de%20Souza%2C%2056%2C%20Mangabeira%2C%20Jo%C3%A3o%20Pessoa&navigate=yes" target="_blank" rel="noopener"><svg class="i"><use href="#i-waze"/></svg>Abrir no Waze</a>
+            <a class="btn btn-ghost btn-sm" href="https://wa.me/5583982066123?text=Oi%2C%20Ana%20Store!%20Estou%20indo%20a%C3%AD%20na%20loja%20%F0%9F%98%8D" target="_blank" rel="noopener"><svg class="i"><use href="#i-wa"/></svg>Avisar que vou</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="final">
+  <span class="plate" style="width:520px;height:520px;right:-160px;top:-160px"></span>
+  <span class="plate" style="width:340px;height:340px;left:-120px;bottom:-140px"></span>
+  <div class="wrap split">
+    <div class="txt">
+      <div><span class="serie rv" style="color:#FFD0E6">Última série</span><h2 class="words" style="margin-top:12px">Seu próximo treino começa <em>no provador</em></h2></div>
+      <p class="lead rv" data-d="1">Manda um oi, diz seu tamanho e o estilo que você curte. A gente te mostra as novidades da semana e separa a sua peça.</p>
+      <div class="ctas rv" data-d="2">
+        <a class="btn btn-light" href="https://wa.me/5583982066123?text=Oi%2C%20Ana%20Store!%20Quero%20ver%20as%20novidades%20da%20semana%20no%20meu%20tamanho%20%F0%9F%92%AA" target="_blank" rel="noopener"><svg class="i"><use href="#i-wa"/></svg>Quero as novidades da semana</a>
+        <a class="btn btn-line-light" href="#loja">Como chegar</a>
+      </div>
+      <p class="rv" data-d="3" style="font-size:14px;opacity:.85">(83) 98206-6123 · Seg a sáb</p>
+    </div>
+    <div class="media clip"><img src="img/l_ed3c8bbf.jpg" alt="Conjunto azul petróleo no provador da Ana Store" loading="lazy"></div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div><img src="img/logo.png" alt="Ana Store Moda Fitness"><p style="margin-top:16px;max-width:30ch">Loja de moda fitness com coleção nova toda semana. Peças de qualidade com o preço justo.</p></div>
+      <div><h4>Navegue</h4><a href="#vitrine">Vitrine</a><a href="#provador">Provador</a><a href="#musas">Musas</a><a href="#troca">Política de troca</a></div>
+      <div><h4>Contato</h4><a href="https://wa.me/5583982066123" target="_blank" rel="noopener"><svg class="i"><use href="#i-wa"/></svg>(83) 98206-6123</a><a href="https://www.instagram.com/anastore.jp/" target="_blank" rel="noopener"><svg class="i"><use href="#i-ig"/></svg>@anastore.jp</a><a href="https://www.instagram.com/anasantosoficiall/" target="_blank" rel="noopener"><svg class="i"><use href="#i-ig"/></svg>@anasantosoficiall</a></div>
+      <div><h4>Loja</h4><p>R. Severino Antônio de Souza, 56<br>Mangabeira, João Pessoa-PB</p><p style="margin-top:8px">Seg–sex 9h30–17h40<br>Sáb 9h–17h</p></div>
+    </div>
+    <div class="copy"><span>© 2026 Ana Store Moda Fitness</span><span>Site por Logotop Design</span></div>
+  </div>
+</footer>
+
+<a class="wa-float" id="waf" href="https://wa.me/5583982066123?text=Oi%2C%20Ana%20Store!" target="_blank" rel="noopener" aria-label="Conversar no WhatsApp"><svg class="i"><use href="#i-wa"/></svg></a>
+
+<script>
+const WA='https://wa.me/5583982066123?text=';
+const wa=t=>WA+encodeURIComponent(t);
+const PRODUCTS=[
+ {img:'p_conj_cores',tag:'Mais pedido',n:'Conjunto poliamida com bojo',m:'Com bolso · 5 cores · veste 38 ao 40/42',c:'85',p:'80'},
+ {img:'p_macaquito_pol',tag:'Com bolsos',n:'Macaquito poliamida',m:'Bolsos laterais · M e G',c:'130',p:'120'},
+ {img:'p_conj_encorpada',tag:'Encorpado',n:'Conjunto poliamida encorpada',m:'Vivo branco · veste 40/42',c:'130',p:'120'},
+ {img:'p_macaquito_can',tag:'Zíper',n:'Macaquito canelado',m:'Gola alta com zíper · P/M/G',c:'3x 36,66',p:'99,99'},
+ {img:'p_conj_micro',tag:'Com bolso',n:'Conjunto micro canelado',m:'Poliamida · 38 ao 40/42',c:'85',p:'80'},
+ {img:'p_conj_importado',tag:'Importado',n:'Conjunto importado',m:'Top + saia-short · P/M/G',c:'155',p:'145'},
+ {img:'p_calca_can',tag:'Premium',n:'Conjunto calça canelada',m:'Top + legging · P/M/G',c:'165',p:'155'},
+ {img:'l_7ac78792',tag:'Novo',n:'Macacão listrado com zíper',m:'Canelado · manga curta',c:null,p:'100'},
+ {img:'v6',tag:'Premium',n:'Conjunto canelado premium',m:'Top assimétrico · P/M/G',c:null,p:'100',vid:1},
+ {img:'p_cropped',tag:'Básico',n:'Cropped poliamida',m:'6 cores · tamanho único',c:'50',p:'45'},
+ {img:'p_blusa',tag:'Leve',n:'Blusa poliamida',m:'Treino e dia a dia',c:null,p:'45'}
+];
+const pg=document.getElementById('prods');
+PRODUCTS.forEach((x,i)=>{
+  const src=x.vid?'v/v6.jpg':'img/'+x.img+'.jpg';
+  pg.insertAdjacentHTML('beforeend',`<article class="card rv" data-d="${i%4+1}"><div class="ph"><img src="${src}" alt="${x.n}" loading="lazy"><span class="tag">${x.tag}</span></div><div class="bd"><h3>${x.n}</h3><span class="meta">${x.m}</span><a class="btn btn-pink btn-sm" target="_blank" rel="noopener" href="${wa('Oi, Ana Store! Quero o '+x.n+'. Qual o valor e tem no meu tamanho?')}"><svg class="i"><use href="#i-wa"/></svg>Quero essa</a></div></article>`);
+});
+pg.insertAdjacentHTML('beforeend',`<article class="card cta-card rv" data-d="4"><div><span class="serie" style="color:#FFD0E6">Chegou essa semana</span><h3 style="margin-top:12px">Peça a vitrine completa</h3></div><p>Toda semana entram cores e modelos novos que ainda nem foram para o Instagram. Receba as fotos direto no seu WhatsApp.</p><a class="btn btn-light" target="_blank" rel="noopener" href="${wa('Oi, Ana Store! Me manda a vitrine completa da semana? 💪')}"><svg class="i"><use href="#i-wa"/></svg>Receber novidades</a></article>`);
+
+const LOOK=['l_76429e30','l_19e1075e','l_3e5f44e8','l_a99e59a8','l_ab715855','l_69581670','l_78ae4599','l_a5adc5ee','l_e909935c','l_eb4b4634','l_78895a89','l_448d9610','l_d3eba8a4','l_404e272e','l_1a27761b','l_b1083aae','p_flat1','p_flat2','p_cabide','p_flat3','p_flat5','t1'];
+document.getElementById('look').innerHTML=LOOK.map((k,i)=>`<div class="slide-ph"><img src="img/${k}.jpg" alt="Look Ana Store no provador" loading="${i<4?'eager':'lazy'}"></div>`).join('');
+const VIDS=[['v2','Conjunto preto'],['v4','Conjunto rosa'],['v5','Macacão com zíper'],['v8','Conjunto vinho'],['v9','Detalhe do tecido'],['v3','Conjunto azul petróleo'],['v6','Conjunto canelado premium']];
+document.getElementById('vids').innerHTML=VIDS.map(([k,a])=>`<div class="slide-ph vid-card"><video src="v/${k}.mp4" poster="v/${k}.jpg" muted loop playsinline preload="none" data-auto aria-label="${a}"></video><span class="play"><svg class="i"><use href="#i-play"/></svg></span></div>`).join('');
+const MUSAS=['m1','m2','m3','m4','m5','m6','m8','m10','c1','c2','c3','c5','c6','c7'];
+document.getElementById('musasCar').innerHTML=MUSAS.map((k,i)=>`<div class="slide-ph"><img src="img/${k}.jpg" alt="Cliente usando Ana Store" loading="${i<4?'eager':'lazy'}"></div>`).join('');
+const FB=[
+ ['Eu sabia que não ia me arrepender de comprar esse conjunto. Perfeito, amei, valorizou demais meu corpo. Mês que vem já estarei pedindo mais um de outra cor 😍','Cliente','Conjunto','wa'],
+ ['Simplesmente maravilhoso, zero transparência e muito confortável.','Cliente','Conjunto canelado','wa'],
+ ['Que tudo, amei! O tecido modela muito o corpo. Passadaaaa 🔥','Cliente','Conjunto','wa'],
+ ['Ontem as leggings bombaram na academia, muita gente perguntando o nome da loja ❤️','Cliente','Legging','wa'],
+ ['Recebi elogios do seu macacão e indiquei a loja. Quando eu tiver oportunidade, vou comprar de novo.','Cliente','Macacão','ig'],
+ ['Amei viu! Top demais. Qualidade premium, principalmente esse cinza ❤️','Cliente','Conjunto','wa'],
+ ['Boa tarde, menina! Que conjunto maravilhoso foi esse que você mandou, uma maravilha. Tem esse mesmo modelo com calça?','Cliente','Conjunto','wa'],
+ ['Ana, as meninas aqui da minha cidade amaram o conjunto! Minha amiga repostou uma foto comigo e uma menina veio aperreada saber onde eu tinha comprado kkk','Cliente','Conjunto','ig'],
+ ['Nega, passando só pra agradecer! Que conjunto perfeito! Quando chegar o rosa me avisa que já quero!','Cliente','Conjunto','ig'],
+ ['Amei, amei, ficou ótimo! Achei que a forma era pequena, mas ficou ideal. Super confortável.','Cliente','Tênis','ig'],
+ ['São perfeitooo esses casaquinhos 😍 Eu adorei. Irei comprar mais!','Cliente','Casaquinho','ig'],
+ ['Eu amei, ficou perfeito ❤️ Você tem mais cores dele?','Cliente','Macaquinho','wa'],
+ ['Simplesmente eles são perfeitos!!','Cliente','Macaquinho','ig'],
+ ['Gostei bastante 🫶','Sueli S.','Conjunto','ig']
+];
+document.getElementById('fbs').innerHTML=FB.map(([t,w,p,s])=>`<article class="fb"><span class="src"><svg class="i"><use href="#${s=='wa'?'i-wa':'i-ig'}"/></svg>${s=='wa'?'WhatsApp':'Instagram'} · <span class="stars" style="font-size:13px">★★★★★</span></span><div class="bubble ${s=='ig'?'ig':''}">${t}</div><div class="who"><span class="av">${w[0]}</span><div><b>${w=='Cliente'?'Cliente Ana Store':w}</b><span>Comprou: ${p}</span></div></div></article>`).join('');
+
+/* words split */
+document.querySelectorAll('.words').forEach(el=>{
+  const walk=n=>{[...n.childNodes].forEach(c=>{
+    if(c.nodeType===3){const f=document.createDocumentFragment();c.textContent.split(/(\s+)/).forEach(p=>{if(!p)return;if(/^\s+$/.test(p)){f.append(p);return}const w=document.createElement('span');w.className='w';const s=document.createElement('span');s.textContent=p;w.append(s);f.append(w)});c.replaceWith(f)}
+    else if(c.nodeType===1&&!c.classList.contains('w'))walk(c);
+  })};walk(el);
+  el.querySelectorAll('.w>span').forEach((s,i)=>s.style.transitionDelay=(i*0.05)+'s');
+});
+
+/* reveal */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.14,rootMargin:'0px 0px -6% 0px'});
+const observeAll=()=>document.querySelectorAll('.rv,.rv-l,.rv-r,.clip,.words,.wipe').forEach(el=>io.observe(el));
+
+/* videos autoplay in view */
+const vio=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;if(e.isIntersecting){v.preload='auto';const p=v.play();p&&p.catch(()=>{})}else v.pause()}),{threshold:.35});
+document.querySelectorAll('video').forEach(v=>{v.muted=true;vio.observe(v);v.closest('.vid-card')?.addEventListener('click',()=>v.paused?v.play():v.pause())});
+
+/* carousels */
+document.querySelectorAll('[data-car]').forEach(c=>{
+  const t=c.querySelector('.car-track'),dots=c.querySelector('.car-dots'),[pv,nx]=c.querySelectorAll('.car-arrows button');
+  const step=()=>{const f=t.children[0];return f?f.getBoundingClientRect().width+16:300};
+  const pages=()=>Math.max(1,Math.round((t.scrollWidth-t.clientWidth)/step())+1);
+  const build=()=>{dots.innerHTML='';const n=pages();for(let i=0;i<n;i++){const b=document.createElement('button');b.setAttribute('aria-label','Ir para '+(i+1));b.onclick=()=>t.scrollTo({left:i*step(),behavior:'smooth'});dots.append(b)}sync()};
+  const sync=()=>{const i=Math.round(t.scrollLeft/step());[...dots.children].forEach((d,j)=>d.classList.toggle('on',j===i))};
+  pv.onclick=()=>t.scrollBy({left:-step(),behavior:'smooth'});
+  nx.onclick=()=>{if(t.scrollLeft+t.clientWidth>=t.scrollWidth-4)t.scrollTo({left:0,behavior:'smooth'});else t.scrollBy({left:step(),behavior:'smooth'})};
+  t.addEventListener('scroll',()=>requestAnimationFrame(sync),{passive:true});
+  addEventListener('resize',build);build();
+  const ms=+c.dataset.auto||4500;let timer=setInterval(()=>nx.onclick(),ms);
+  c.addEventListener('pointerenter',()=>clearInterval(timer));c.addEventListener('pointerleave',()=>{clearInterval(timer);timer=setInterval(()=>nx.onclick(),ms)});
+  t.addEventListener('touchstart',()=>clearInterval(timer),{passive:true});
+});
+
+/* header + float */
+const hdr=document.getElementById('top'),waf=document.getElementById('waf');
+addEventListener('scroll',()=>{hdr.classList.toggle('scrolled',scrollY>10);waf.classList.toggle('show',scrollY>500)},{passive:true});
+const mb=document.querySelector('.menu-btn'),menu=document.getElementById('menu');
+mb.onclick=()=>{const o=menu.classList.toggle('open');mb.setAttribute('aria-expanded',o)};
+menu.querySelectorAll('a').forEach(a=>a.onclick=()=>{menu.classList.remove('open');mb.setAttribute('aria-expanded',false)});
+
+/* intro */
+(function(){
+  const intro=document.getElementById('intro'),img=intro.querySelector('img');
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let done=false;
+  const start=()=>{requestAnimationFrame(()=>intro.classList.add('show'));
+    setTimeout(()=>intro.classList.add('fade'),reduce?200:1900);
+    setTimeout(end,reduce?400:3600)};
+  const end=()=>{if(done)return;done=true;intro.classList.add('fade','gone');document.body.classList.remove('locked');observeAll();setTimeout(()=>intro.remove(),700)};
+  if(img.complete)start();else{img.onload=start;img.onerror=end}
+  setTimeout(end,6000);
+})();
+</script>
+</body>
+</html>
