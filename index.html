@@ -303,9 +303,10 @@ footer{background:var(--ink);color:rgba(255,255,255,.75);padding:56px 0 34px;fon
   .nav .btn-wa-top{display:none}
   .hero-grid,.split,.feature,.loc-grid,.musas-top,.sec-head{grid-template-columns:1fr}
   .sec-head .lead{justify-self:start}
-  .hero-media{min-height:auto;grid-template-rows:auto auto}
+  .hero-media{min-height:auto;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:12px}
   .hero-media .m{aspect-ratio:3/4}
-  .hero-media .m:first-child{grid-row:1/3}
+  .hero-media .m:first-child{grid-row:auto;grid-column:1/-1;aspect-ratio:4/5}
+  .badge-float{font-size:12px;padding:8px 12px}
   .feature .big{min-height:0;aspect-ratio:3/4}
   .musas-top .big{min-height:0;aspect-ratio:3/4}
   .split .media{aspect-ratio:4/5;min-height:0}
