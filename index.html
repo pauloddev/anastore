@@ -311,7 +311,10 @@ footer{background:var(--ink);color:rgba(255,255,255,.75);padding:56px 0 34px;fon
   .musas-top .big{min-height:0;aspect-ratio:3/4}
   .split .media{aspect-ratio:4/5;min-height:0}
   .final .split .media{min-height:0}
-  .loc-photo{aspect-ratio:4/5}
+  .loc-photo{aspect-ratio:auto}
+  .split .media{aspect-ratio:auto!important;min-height:0!important;height:auto}
+  .split .media img,.split .media video,.loc-photo img,.feature .big img,.feature .big video{position:static!important;display:block;width:100%;height:auto!important;aspect-ratio:4/5;object-fit:cover}
+  .feature .big{aspect-ratio:auto}
   .google{grid-template-columns:1fr;text-align:center;justify-items:center}
 }
 @media (max-width:560px){
@@ -519,7 +522,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.75);padding:56px 0 34px;fon
 <!-- CEO -->
 <section id="ceo" class="dark ceo" style="padding-top:0">
   <div class="wrap split">
-    <div class="media clip"><img src="img/ceo.jpg" alt="Analucia Santos, CEO da Ana Store" loading="lazy"></div>
+    <div class="media clip"><img src="img/ceo.jpg" alt="Analucia Santos, CEO da Ana Store" loading="eager" width="800" height="1000"></div>
     <div class="txt">
       <div><span class="serie rv">Série 06 · Quem está por trás</span>
         <h2 class="sign words" style="margin-top:14px">Analucia Santos</h2><span class="role rv">CEO · Ana Store Moda Fitness</span></div>
